@@ -1,0 +1,9 @@
+[submodule "jenkins"]
+	path = jenkins
+	url = git@github.com:rhels/docker.git
+[submodule "sonar"]
+	path = sonar
+	url = git@github.com:rhels/docker-sonarqube.git
+[submodule "nexus"]
+	path = nexus
+	url = git@github.com:rhels/docker-nexus.git
