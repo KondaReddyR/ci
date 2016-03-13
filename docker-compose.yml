@@ -1,0 +1,25 @@
+nexus:
+  build: ./nexus/oss
+  ports:
+    - "8081:8081"
+  container_name: nexus
+
+jenkins:
+  build: ./jenkins
+  links:
+    - nexus:nexus
+    - sonar:sonar
+  environment:
+    JAVA_OPTS: "-Djava.awt.headless=true"
+  ports:
+    - "50000:50000"
+    - "8080:8080"
+  volumes:
+    - /var/jenkins_home
+  container_name: jenkins
+
+sonar:
+  build: ./sonar/5.4
+  ports:
+   - "9000:9000"
+  container_name: sonar
